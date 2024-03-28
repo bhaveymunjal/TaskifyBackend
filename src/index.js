@@ -8,7 +8,10 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 4000;
-
+const corsOptions = {
+  origin:"https://taskify-bhavey.netlify.app/",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",};
+app.use(cors(corsOptions));
 app.use(cors()) 
 app.use(express.json());
 app.use(userRouter)
